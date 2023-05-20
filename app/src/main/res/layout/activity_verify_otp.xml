@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Try to enter the OTP that already stored in our Firebase Realtime Database"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/otp_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="6-Digit OTP"
+        android:textColorHint="@color/silver"
+        app:boxBackgroundColor="@color/jet">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/otp_input"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textCursorDrawable="@drawable/cursor_color"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:padding="12dp"
+        android:text="Submit"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/request_new_otp_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Request another new OTP code..."
+        android:textColor="@color/dodger_blue"
+        android:textSize="16sp"
+        android:clickable="true"/>
+</LinearLayout>

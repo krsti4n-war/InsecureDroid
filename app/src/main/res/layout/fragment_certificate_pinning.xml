@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Challenges"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bypass the certificate pinning and intercept the traffic."
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Notes:\The challenge require a Burp Suite to do the intercept. For the first, make sure to connect your Android with the Burp Proxy by installing the Burp Certificate first."
+        android:textColor="@color/silver"
+        android:textSize="12sp"/>
+
+    <Button
+        android:id="@+id/send_request_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:padding="12dp"
+        android:text="Send Request"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/hint1_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hint 1"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/hint2_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Hint 2"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/hint3_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Hint 3"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hint_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/silver"
+        android:textSize="14sp"/>
+</LinearLayout>

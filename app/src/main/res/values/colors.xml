@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#1E1E1E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="night">#121212</color>
+    <color name="eerie_black">#212121</color>
+    <color name="jet">#333333 </color>
+    <color name="onyx">#444444 </color>
+    <color name="outer_space">#464F51 </color>
+    <color name="silver">#BDBDBD</color>
+    <color name="cobalt_blue">#0D47A1</color>
+    <color name="french_blue">#1976D2</color>
+    <color name="dodger_blue">#2196F3</color>
+</resources>

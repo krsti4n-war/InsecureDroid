@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "439582804324",
+    "project_id": "indroid-23dbd",
+    "storage_bucket": "indroid-23dbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439582804324:android:1c00e27379f65c943a5271",
+        "android_client_info": {
+          "package_name": "lab.insecuredroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439582804324-ds1e68egedcjs2eeavjfmvmm75o8nnd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAssLaTqwC413tbn7QIOW1dARxpoE2QFoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439582804324-ds1e68egedcjs2eeavjfmvmm75o8nnd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

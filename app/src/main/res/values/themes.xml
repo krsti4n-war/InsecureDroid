@@ -1,0 +1,10 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.InsecureDroid" parent="Base.Theme.InsecureDroid"/>
+    <style name="Base.Theme.InsecureDroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/french_blue</item>
+        <item name="colorPrimaryDark">@color/cobalt_blue</item>
+        <item name="android:windowBackground">@color/eerie_black</item>
+        <item name="android:statusBarColor">@color/night</item>
+    </style>
+</resources>
