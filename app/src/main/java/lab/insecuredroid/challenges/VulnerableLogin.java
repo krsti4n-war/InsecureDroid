@@ -3,7 +3,6 @@ package lab.insecuredroid.challenges;
 import static lab.insecuredroid.challenges.utils.AESCryptoHelper.encrypt;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -70,12 +69,10 @@ public class VulnerableLogin extends Fragment {
 
         Button hint1Button = view.findViewById(R.id.hint1_button);
         Button hint2Button = view.findViewById(R.id.hint2_button);
-        Button hint3Button = view.findViewById(R.id.hint3_button);
         TextView hintTextView = view.findViewById(R.id.hint_text_view);
 
         hint1Button.setOnClickListener(v -> hintTextView.setText(R.string.vulnerable_login_hint1));
         hint2Button.setOnClickListener(v -> hintTextView.setText(R.string.vulnerable_login_hint2));
-        hint3Button.setOnClickListener(v -> hintTextView.setText(R.string.vulnerable_login_hint3));
 
         return view;
     }
@@ -118,9 +115,6 @@ public class VulnerableLogin extends Fragment {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("token", jwtToken);
                         editor.apply();
-
-                        Intent intent = new Intent(requireActivity(), LoginSuccessfulActivity.class);
-                        startActivity(intent);
                     }
                 } catch (IOException | JSONException | RuntimeException e) {
                     e.printStackTrace();

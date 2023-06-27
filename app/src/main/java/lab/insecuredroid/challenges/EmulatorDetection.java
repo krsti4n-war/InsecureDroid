@@ -1,6 +1,5 @@
 package lab.insecuredroid.challenges;
 
-import android.opengl.GLES10;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,53 +37,18 @@ public class EmulatorDetection extends Fragment {
         return view;
     }
 
-    public Boolean isEmulator() {
-        boolean result = false;
-        // Check for known emulator device models
-        String model = Build.MODEL;
-        String manufacturer = Build.MANUFACTURER;
-        if (model != null && model.toLowerCase().contains("google_sdk")
-                || model.contains("Emulator")
-                || model.contains("Android SDK built for x86")
-                || manufacturer.contains("Genymotion")
-                || (model.contains("Droid4X") && model.contains("x86"))) {
-            result = true;
-        }
-        // Check for known emulator fingerprints
-        String fingerprint = Build.FINGERPRINT;
-        if (fingerprint != null && (fingerprint.contains("vbox")
-                || fingerprint.contains("generic/vbox")
-                || fingerprint.contains("generic_x86/vbox")
-                || fingerprint.contains("sdk_gphone_x86")
-                || fingerprint.contains("google/sdk_gphone_x86")
-                || fingerprint.contains("vsemu")
-                || fingerprint.contains("virtual")
-                || fingerprint.contains("test-keys"))) {
-            result = true;
-        }
-        // Check for known emulator properties
-        String property = System.getProperty("ro.kernel.qemu");
-        if (property != null && property.equals("1")) {
-            result = true;
-        }
-        // Check for emulator CPU architecture
-        String[] supportedAbis = Build.SUPPORTED_ABIS;
-        for (String abi : supportedAbis) {
-            if (abi.contains("x86") || abi.contains("i686")) {
-                result = true;
-                break;
-            }
-        }
-        // Check for emulator graphics properties
-        String gl_renderer = GLES10.glGetString(GLES10.GL_RENDERER);
-        if (gl_renderer != null && gl_renderer.contains("Bluestacks")) {
-            result = true;
-        }
-        // Check for running on a virtual machine
-        String vm = Build.HARDWARE;
-        if (vm != null && vm.contains("vbox") || vm.contains("qemu") || vm.contains("vmware")) {
-            result = true;
-        }
-        return result;
+    public boolean isEmulator() {
+        String buildDetails = (Build.FINGERPRINT + Build.DEVICE + Build.MODEL + Build.BRAND +
+                Build.PRODUCT + Build.MANUFACTURER + Build.HARDWARE).toLowerCase();
+
+        return (buildDetails.contains("generic")
+                || buildDetails.contains("unknown")
+                || buildDetails.contains("emulator")
+                || buildDetails.contains("sdk")
+                || buildDetails.contains("vbox")
+                || buildDetails.contains("genymotion")
+                || buildDetails.contains("x86")
+                || buildDetails.contains("goldfish")
+                || buildDetails.contains("test-keys"));
     }
 }

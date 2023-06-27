@@ -19,26 +19,26 @@
 
     <string name="sql_injection_hint">There is no input sanitization and the SQL Queries used to fetch user data are highly vulnerable to SQL Injection Attacks.</string>
     <string name="vulnerable_web_view_hint1">By enabling JavaScript, the WebView can become vulnerable with XSS or load malicious URLs</string>
-    <string name="vulnerable_web_view_hint2">By enabling AllowFileAccess, the WebView can access the file:// protocol which allows the WebView to access file system access.</string>
-    <string name="weak_cryptography_hint1">Encryption uses the AES-CBC algorithm with a hardcoded encryption key. Retrieve the encryption key or you can use the encryption source code to decrypt the encrypted string.</string>
-    <string name="weak_cryptography_hint2">You also can use Frida for Intercept Android APK Crypto Operations.\n\nThe Frida script can be used for this task:\nhttps://codeshare.frida.re/@fadeevab/intercept-android-apk-crypto-operations/</string>
+    <string name="vulnerable_web_view_hint2">By enabling file access, the WebView can access the file:// protocol which allows the WebView to access file system access.</string>
+    <string name="weak_cryptography_hint1">Application store the secrets into the shared preferences which is not a secure data storage to store sensitive information</string>
+    <string name="weak_cryptography_hint2">Encryption uses the AES-CBC algorithm with a hardcoded encryption key. Retrieve the encryption key or you can use the encryption source code to decrypt the encrypted string.</string>
     <string name="deeplink_exploitation_hint1">Get the Deeplink URL first by checking AndroidManifest.xml.\n\nThe Deeplink URL example:\nmyapp://android/home?text=Hello world!</string>
     <string name="deeplink_exploitation_hint2">Regarding the Web and WebView path, where the WebView path checking the entered host URL.</string>
     <string name="root_detection_hint1">Have you tried using a MagiskHide to hide the root?</string>
     <string name="root_detection_hint2">Try to bypass using Frida for RootBeer root detection bypass.\n\nThe Frida script can be used for this task:\nhttps://codeshare.frida.re/@ub3rsick/rootbeer-root-detection-bypass/</string>
     <string name="emulator_detection_hint">The task need you to craft a custom Frida script to bypass the emulator detection by override the isEmulator value into false.</string>
     <string name="certificate_pinning_hint1">Make sure again your Android device is already connected to the Burp Suite.\n\nAlso you can configure the Android Proxy by using some applications like ProxyDroid to help configure the Proxy</string>
-    <string name="certificate_pinning_hint2">You also can use Frida  for Universal Android SSL Pinning Bypass with Frida.\n\nThe Frida script can be used for this task:\n https://codeshare.frida.re/@pcipolloni/universal-android-ssl-pinning-bypass-with-frida/</string>
+    <string name="certificate_pinning_hint2">You also can use Frida  for frida-multiple-unpinning.\n\nThe Frida script can be used for this task:\n https://codeshare.frida.re/@akabe1/frida-multiple-unpinning/</string>
     <string name="certificate_pinning_hint3">There is another method that you can use by utilizing Xposed SSLUnpinning modules</string>
-    <string name="insecure_provider_hint1">The provider is configured with android:exported="true", which mean the data can be accessed by ALL applications and also can be exploited from adb shell.</string>
-    <string name="insecure_provider_hint2">There is no input validation, so the query can be very vulnerable with the SQL Injection attacks</string>
-    <string name="file_provider_exploitation_hint">Find a way to access the protected file providers then try to send some request to access the file providers</string>
+    <string name="insecure_content_provider_hint">The provider is configured with android:exported="true", which mean the data can be accessed by ALL applications and also can be exploited from adb shell.</string>
+    <string name="file_provider_exploitation_hint">There is a vulnerability known as intent redirection, find a way to access the protected components by using the ProxyActivity</string>
     <string name="misconfigured_firebase_database_hint">The Firebase Realtime Database rules ".read" is set to true which mean all the stored data on the requested path can be easily accessed from the browser.</string>
-    <string name="smali_patching_hint1">Try to decompile the application first, then tamper the required data for login</string>
-    <string name="smali_patching_hint2">Remember to rebuild the decompiled application and sign the apk by using jarsigner and apksigner.</string>
-    <string name="vulnerable_login_hint1">Have you check the AndroidManifest for the others activity that can be accessed from the outside of the applications?</string>
-    <string name="vulnerable_login_hint2">The required activity can be accessed via Deeplink and there is IDOR vulnerability that can be exploited</string>
-    <string name="vulnerable_login_hint3">The communication is using a cleartext transmission, which mean all traffic can be easily read by the attackers and could lead all the sensitive information that transmitted by the applications</string>
+    <string name="native_library_hint1">Try to decompile the application first, then analyze the native library using a disassembler</string>
+    <string name="native_library_hint2">Try to hook the Android Native Methods using Frida to replace the returning value</string>
+    <string name="smali_patching_hint1">Try to decompile the application first, then tamper the required data</string>
+    <string name="smali_patching_hint2">Remember to rebuild the decompiled application and sign the apk by using jarsigner or apksigner.</string>
+    <string name="vulnerable_login_hint1">Have you check the AndroidManifest for the change password activity that can be called via Deeplink?</string>
+    <string name="vulnerable_login_hint2">The IDOR vulnerability can be exploited by directly access the admin account from the deep link or intercept the request</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

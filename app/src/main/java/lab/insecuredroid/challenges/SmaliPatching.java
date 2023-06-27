@@ -49,14 +49,9 @@ public class SmaliPatching extends Fragment {
     }
 
     private void login(String username, String password) {
-        if (Objects.equals(username, "admin") && Objects.equals(SHA256HashHelper.hashPassword(password), "bc7e8885a784d1892be500ac31e5be7b37d8a47da278f31b790833ffbdc901e8")){
-            // Disable admin access for Production
-            boolean isAdmin = false;
-            if (isAdmin) {
-                Toast.makeText(requireContext(),"Welcome back administrator.", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(requireContext(),"Sorry, but the access admin is disabled", Toast.LENGTH_LONG).show();
-            }
+        if (Objects.equals(username, "admin") &&
+                Objects.equals(SHA256HashHelper.hashPassword(password), "bc7e8885a784d1892be500ac31e5be7b37d8a47da278f31b790833ffbdc901e8")){
+            Toast.makeText(requireContext(),"Welcome back administrator.", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(requireContext(),"You are not administrator!", Toast.LENGTH_LONG).show();
         }

@@ -19,7 +19,7 @@ public class NativeLibrary extends Fragment {
     static {
         System.loadLibrary("native_lib");
     }
-    public static native Boolean checkPass(Context context, String text);
+    public static native boolean checkPass(Context context, String text);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,16 +39,15 @@ public class NativeLibrary extends Fragment {
                 return;
             }
 
-            Boolean result = checkPass(requireContext(), password);
-            if (result != null && result) {
+            if (checkPass(requireContext(), password)) {
                 Toast.makeText(requireContext(), "Congrats you crack the password!", Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(requireContext(), "Password doesn't match", Toast.LENGTH_LONG).show();
             }
         });
 
-        hint1Button.setOnClickListener(v -> hintTextView.setText(R.string.weak_cryptography_hint1));
-        hint2Button.setOnClickListener(v -> hintTextView.setText(R.string.weak_cryptography_hint2));
+        hint1Button.setOnClickListener(v -> hintTextView.setText(R.string.native_library_hint1));
+        hint2Button.setOnClickListener(v -> hintTextView.setText(R.string.native_library_hint2));
 
         return view;
     }

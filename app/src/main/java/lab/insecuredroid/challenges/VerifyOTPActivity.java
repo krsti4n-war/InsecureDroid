@@ -1,8 +1,6 @@
 package lab.insecuredroid.challenges;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -62,7 +60,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
                 verifyOTP(username, enteredOTP);
             } else {
                 Toast.makeText(this, "Maximum attempts reached.", Toast.LENGTH_LONG).show();
-                submitButton.setEnabled(false); // Disable the submit button if the maximum attempts are reached
+                submitButton.setEnabled(false);
             }
         });
 
@@ -78,9 +76,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String storedOTP = dataSnapshot.getValue(String.class);
                 if (Objects.equals(storedOTP, enteredOTP)) {
-                    Toast.makeText(getApplicationContext(),"OTP match!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), LoginSuccessfulActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"OTP match! Congrats you finish the task", Toast.LENGTH_LONG).show();
                     finish();
                 } else {
                     remainingAttempts--;
@@ -90,9 +86,6 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("FirebaseError", "Error code: " + databaseError.getCode());
-                Log.e("FirebaseError", "Error message: " + databaseError.getMessage());
-                Log.e("FirebaseError", "Error details: " + databaseError.getDetails());
             }
         });
     }

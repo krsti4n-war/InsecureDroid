@@ -41,19 +41,6 @@ public class DeeplinkActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         break;
-                    case "/webview":
-                        String web_url = uri.getQueryParameter("url");
-                        if (web_url != null) {
-                            String host = Uri.parse(web_url).getHost();
-                            if (host != null && host.endsWith("example.com")) {
-                                Intent intent = new Intent(this, WebViewActivity.class);
-                                intent.putExtra("url", web_url);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "invalid URL", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        break;
                     case "/change-password": {
                         String username = uri.getQueryParameter("username");
                         if (username != null) {

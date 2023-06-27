@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The challenge is regarding the API Testing and can you exploit this vulnerable login page?"
+        android:text="The challenge is regarding the API Testing and can you login as admin by exploiting the IDOR vulnerability?"
         android:textColor="@color/white"
         android:textSize="16sp"/>
 
@@ -107,14 +107,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Hint 2"
-            android:textColor="@color/white"/>
-
-        <Button
-            android:id="@+id/hint3_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="Hint 3"
             android:textColor="@color/white"/>
     </LinearLayout>
 

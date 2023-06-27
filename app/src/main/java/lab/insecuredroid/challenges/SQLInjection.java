@@ -1,9 +1,7 @@
 package lab.insecuredroid.challenges;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,15 +46,9 @@ public class SQLInjection extends Fragment {
             String username = usernameInput.getText().toString();
             String password = passwordInput.getText().toString();
 
-            // Debug the entered credentials...
-            Log.d("DEBUG", "username: "+ username + "|" + "password: " + password);
-
-            // Check the login credentials is valid
-            Boolean loginSuccessful = dbHelper.vulnerable_login(username, password);
+            boolean loginSuccessful = dbHelper.vulnerable_login(username, password);
             if (loginSuccessful) {
                 Toast.makeText(requireContext(), "Login Success.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(requireActivity(), LoginSuccessfulActivity.class);
-                startActivity(intent);
             } else {
                 Toast.makeText(requireContext(),"Login failed. Please try again.", Toast.LENGTH_LONG).show();
             }

@@ -1,7 +1,6 @@
 package lab.insecuredroid.challenges.utils;
 
 import android.content.ContentProvider;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -28,7 +27,16 @@ public class DBContentProvider extends ContentProvider {
                         @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-        queryBuilder.setTables("users");
+
+        int match = uriMatcher.match(uri);
+        switch (match) {
+            case 1:
+                queryBuilder.setTables("users");
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
+
         Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
         return cursor;
@@ -43,19 +51,16 @@ public class DBContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        return ContentUris.withAppendedId(uri, db.insert("users", null, values));
+        throw new UnsupportedOperationException("Insert operation is not supported");
     }
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        return db.delete("users", selection, selectionArgs);
+        throw new UnsupportedOperationException("Delete operation is not supported");
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        return db.update("users", values, selection, selectionArgs);
+        throw new UnsupportedOperationException("Update operation is not supported");
     }
 }

@@ -13,15 +13,14 @@ public class AESCryptoHelper {
     static final String base64IV = "AQIDBAUGBwgJCgsMDQ4PEA==";
 
     public static String encrypt(String secret) {
-
         try {
             byte[] keyBytes = Base64.getDecoder().decode(base64Key);
             byte[] iv = Base64.getDecoder().decode(base64IV);
             SecretKey secretKeySpeck = new SecretKeySpec(keyBytes, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKeySpeck, new IvParameterSpec(iv));
-            byte[] plaintextBytes = cipher.doFinal(secret.getBytes());
-            return Base64.getEncoder().encodeToString(plaintextBytes);
+            byte[] encryptedtextBytes = cipher.doFinal(secret.getBytes());
+            return Base64.getEncoder().encodeToString(encryptedtextBytes);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

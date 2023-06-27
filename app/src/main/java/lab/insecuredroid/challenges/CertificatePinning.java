@@ -53,18 +53,15 @@ public class CertificatePinning extends Fragment {
 
     private void sendRequest() {
         try {
-            // Load certificate from raw resource file
             InputStream inputStream = requireContext().getResources().openRawResource(R.raw.badssl);
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             X509Certificate certificate = (X509Certificate) certificateFactory.generateCertificate(inputStream);
 
-            // Create certificate pinner with pinned certificate's SHA-256 hash
             String pin = CertificatePinner.pin(certificate);
             CertificatePinner certificatePinner = new CertificatePinner.Builder()
-                    .add("example.com", pin)
+                    .add("badssl.com", pin)
                     .build();
 
-            // Create SSL context with pinned certificate
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
@@ -74,13 +71,11 @@ public class CertificatePinning extends Fragment {
             SSLContext sslContext = SSLContext.getInstance("TLS");
             sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
 
-            // Create OkHttpClient with SSL socket factory and certificate pinner
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustManagerFactory.getTrustManagers()[0])
                     .certificatePinner(certificatePinner)
                     .build();
 
-            // Make HTTPS request with pinned certificate
             Request request = new Request.Builder()
                     .url("https://tls-v1-2.badssl.com:1012/")
                     .build();

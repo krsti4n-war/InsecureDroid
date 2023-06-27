@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The applications use some Native Library that store a secret password. Try to retrieve the stored password and crack the password."
+        android:text="The applications use some Native Library that store a secret password. Try to crack the password or bypass the following password checks."
         android:textColor="@color/white"
         android:textSize="16sp"/>
 
