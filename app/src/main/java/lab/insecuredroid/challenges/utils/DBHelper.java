@@ -30,8 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
         boolean exists = false;
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            String sql = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + hashPassword(password) + "'";
-            Cursor cursor = db.rawQuery(sql, null);
+            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+            Cursor cursor = db.rawQuery(sql, new String[]{username, hashPassword(password)});
             exists = (cursor.getCount() > 0);
             cursor.close();
             db.close();
